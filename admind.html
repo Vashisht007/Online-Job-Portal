@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Details</title>
+    <style>
+        * {
+            transition: all 0.3s ease-in-out;
+            box-sizing: border-box; /* include padding and border in element's total width and height */
+        }
+
+        .input-group {
+            width: 300px; /* Adjust width as needed */
+            margin: 5 auto; /* Center horizontally */
+            margin-top: 20px; /* Add space at the top */
+            margin-bottom:20px;
+            display: flex; /* Use flexbox for layout */
+            align-items: center; /* Align items vertically */
+            justify-content: flex-start; /* Align items to the left */
+        }
+
+        .custom-select {
+            width: calc(100% - 90px); /* Adjust width of select box */
+            border-radius: 5px;
+            border: 1px solid #ced4da; /* Add a border */
+            padding: 10px; /* Add some padding */
+        }
+
+        .domain-label {
+            margin-bottom: 5px; /* Add some space below the label */
+            font-weight: bold; /* Make text bold */
+        }
+
+        body {
+            margin: 0; /* remove default margin */
+            padding: 0; /* remove default padding */
+            background: url('https://static.vecteezy.com/system/resources/previews/020/310/242/non_2x/chosen-candidate-standing-under-light-of-flashlight-candidates-concept-illustration-free-vector.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            height: 100vh; /* set body height to viewport height */
+            overflow-x: hidden; /* hide horizontal scrollbar */
+        }
+        
+
+        .container {
+            max-width: 1000px; /* adjust as needed */
+            margin: 0 auto; /* center the container */
+            padding: 0 20px; /* add some padding */
+        }
+
+        nav {
+            float: right;
+        }
+
+        .logo {
+            float: left;
+            display: flex;
+            align-items: center; /* Vertically center align items */
+        }
+
+        .logo img {
+            margin-right: 10px; /* Add space between image and text */
+            width: 70px;
+        }
+
+        .logo span {
+            font-size: 20px;
+            font-family: raleway;
+        }
+
+        ul li {
+            display: inline-block;
+            padding: 10px;
+            font-size: 20px;
+            font-family: raleway;
+        }
+
+        ul li:hover {
+            color: orange;
+        }
+
+        .form-horizontal {
+            background-color: rgba(255, 255, 255, 0.8); /* semi-transparent white background */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* subtle shadow */
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .control-label {
+            font-weight: bold;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .form-control-file {
+            width: calc(100% - 40px); /* Adjust as needed */
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-top: 5px;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+        
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <div class="logo">
+            <img src="https://www.sitepoint.com/wp-content/uploads/2010/04/wwf_logo.jpg" alt="" width="70"/>
+            <span>VirtuHire</span> 
+        </div>
+        <form ></form>
+        <nav>
+            <ul>
+                <li><span onclick="redirectToUser()">Home</span></li>
+                
+                <li><span onclick="redirectTologout()">Logout</span></li>
+            </ul>
+        </nav>
+    </div>
+    <hr />
+    <div class="container">
+        <form action="/admind" method="POST" class="form-horizontal" role="form" enctype='multipart/form-data'>
+            <h1 align="center" id="1" >Personal Details</h1>
+            <div class="form-group">  
+                
+                <label for="firstName" class="col-sm-3 control-label">First Name</label>
+                <div class="col-sm-9">
+                    <input disabled type="text" value="{{aperson.firstName}}" id="firstName" name="firstName" placeholder="First Name" class="form-control" autofocus>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="lastName" class="col-sm-3 control-label">Last Name</label>
+                <div class="col-sm-9">
+                    <input disabled type="text" value="{{aperson.lastName}}" id="lastName" name="lastName" placeholder="Last Name" class="form-control" autofocus>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="demail" class="col-sm-3 control-label">Email* </label>
+                <div class="col-sm-9">
+                    <input disabled type="email" value="{{aperson.demail}}" id="demail" placeholder="Email" class="form-control" name="demail">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="lastjobdesignation" class="col-sm-3 control-label">Last Job Designation*</label>
+                <div class="col-sm-9">
+                    <input disabled type="text" value="{{aperson.lastjobdesignation}}" id="lastjobdesignation" placeholder="" name="lastjobdesignation" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="lastcompany" class="col-sm-3 control-label">Last Company Name*</label>
+                <div class="col-sm-9">
+                    <input disabled type="lastcompany" value="{{aperson.lastcompany}}" id="lastcompany" name="lastcompany" placeholder="" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="ddob" class="col-sm-3 control-label">Date of Birth*</label>
+                <div class="col-sm-9">
+                    <input disabled type="date" value="{{aperson.ddob}}" id="ddob" class="form-control" name="ddob">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="address" class="col-sm-3 control-label">Address</label>
+                <div class="col-sm-9">
+                    <input disabled type="text" id="address" value="{{aperson.address}}" name="address" placeholder="Address" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="phoneno" class="col-sm-3 control-label">Phone number </label>
+                <div class="col-sm-9">
+                    <input disabled type="phoneNumber" id="phoneno" value="{{aperson.phoneno}}" name="phoneno" placeholder="Phone number" class="form-control">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="salary" class="col-sm-3 control-label">Salary</label>
+                <div class="col-sm-9">
+                    <input type="number" id="salary" value="{{aperson.salary}}" name="salary" placeholder="Salary" class="form-control">
+                </div>
+            </div>
+            <div class="input-group mb-3">
+              <label  for="domain" class="domain-label">Domain</label>
+              <select disabled class="custom-select" value="{{aperson.domain}}" id="domain" name="domain">
+                <option hidden> Select</option>
+                <option value="Front-End Developer" {% if aperson.domain == 'Front-End Developer' %} selected  {% endif %}>Front-End Developer<option>
+                    <option value="Back-End Developer" {% if aperson.domain == 'Back-End Developer' %} selected  {% endif %}>Back-End Developer<option>
+                    <option value="Full Stack Developer" {% if aperson.domain == 'Full Stack Developer' %} selected  {% endif %}>Full Stack Developer<option>
+              </select>
+              
+          </div>
+            
+          <div class="form-group">
+            <label for="file" class="col-sm-3 control-label">Download Resume*</label>
+            <div class="col-sm-9">
+                <div class="input-group">
+                    <a href="{{ url_for('download_file',filename=aperson.filename) }}" class="btn btn-primary">Download</a>
+                </div>
+            </div>
+        </div>
+                
+                </div>
+            </div>
+        </div>
+              </div>
+          </form>
+      </div>
+  
+      <!-- Optional: Add your JavaScript here -->
+       <script>
+        function redirectTologout() {
+        window.location.href = "{{ url_for('home') }}";
+    }
+      </script>
+      <script>
+        function redirectToUser() {
+        window.location.href = "{{ url_for('aindex') }}";
+    }
+      </script>
+  </body>
+  </html>

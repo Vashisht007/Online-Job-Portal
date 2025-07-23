@@ -1,0 +1,18 @@
+<!-- <form action="{{ url_for('reject', email=new_det.demail) }}" method="POST">
+    <input type="hidden" name="reject">
+    <button type="submit" name="reject" class="btn btn-danger">Reject</button>
+</form> -->
+
+<!-- 
+@app.route('/reject/<email>', methods=['POST'])
+    def reject(email):
+        if request.method == 'POST':
+            # Delete the row associated with the provided email address
+            details = Details.query.filter_by(demail=email).first()
+            if details:
+                db.session.delete(details)
+                db.session.commit()
+                flash("User rejected successfully.", "success")
+            else:
+                flash("User not found.", "error")
+            return redirect(url_for('a.html')) -->
