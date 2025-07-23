@@ -1,4 +1,4 @@
-
+First save all the .html Files in a folder 
 VirtuHire – Resume Submission & Admin Management Portal
 ========================================================
 
